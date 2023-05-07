@@ -1,9 +1,12 @@
-import { log } from "console";
 import express from "express";
 import ProductManager from "./ManagerProducts.js";
 
 const app = express();
 const manager = new ProductManager();
+
+app.get("/", (req, res) => {
+res.send("Welcome to summoner's rift")
+})
 
 app.get("/products", async (req, res) => {
     let productos = await manager.getProducts()
